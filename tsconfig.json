@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "paths": {
       "@dtos/*": [
-        "src/dtos/*"
+        "./src/dtos/*"
       ],
       "@assets/*": [
         "./src/assets/*"
@@ -28,12 +28,15 @@
       "@hooks/*": [
         "./src/hooks/*"
       ],
-      "@contexts/*": [
-        "./src/contexts/*"
+      "@context/*": [
+        "./src/context/*"
       ],
       "@routes/*": [
         "./src/routes/*"
-      ]
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
     }
   }
 }

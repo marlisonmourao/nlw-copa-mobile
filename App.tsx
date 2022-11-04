@@ -1,17 +1,19 @@
-import { NativeBaseProvider, StatusBar } from "native-base";
+import { NativeBaseProvider, StatusBar } from 'native-base';
 
 import {
   useFonts,
   Roboto_400Regular,
   Roboto_500Medium,
   Roboto_700Bold,
-} from "@expo-google-fonts/roboto";
+} from '@expo-google-fonts/roboto';
 
-import { THEME } from "./src/styles/theme";
+import { AuthContextProvider } from '@context/AuthContext'
 
-import { Loading } from "./src/components/Loading";
+import { THEME } from '@styles/theme';
 
-import { SignIn } from "./src/screens/SignIn";
+import { Loading } from '@components/Loading';
+
+import { Routes } from '@routes/index';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,12 +24,14 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={THEME}>
-      <StatusBar
-        backgroundColor="transparent"
-        translucent
-        barStyle="light-content"
-      />
-      {fontsLoaded ? <SignIn /> : <Loading />}
+      <AuthContextProvider>
+        <StatusBar
+          backgroundColor="transparent"
+          translucent
+          barStyle="light-content"
+        />
+        {fontsLoaded ? <Routes /> : <Loading />}
+      </AuthContextProvider>
     </NativeBaseProvider>
   );
 }
